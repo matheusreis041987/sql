@@ -1,0 +1,2 @@
+select rowid, * from tadega;
+

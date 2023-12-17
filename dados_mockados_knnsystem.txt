@@ -1,0 +1,90 @@
+insert into sch_pessoas.tbl_pessoas (cpf, nome, email, status) values
+('12356489750','José das Couves','jose_couves@knnsystem.com.br','ativo'); 
+
+-- ======================================================
+
+insert into sch_pessoas.tbl_telefone (pk_id,numero) values
+(2,'(21)99756-0970'); 
+
+-- ======================================================
+
+insert into sch_pessoas.tbl_proprietario values
+(2,564252);
+
+-- ======================================================
+
+insert into sch_pessoas.tbl_morador values
+(2,1104,'A-norte')
+
+-- ======================================================
+
+insert into sch_pessoas.tbl_usuario values
+(2,'Analista','secretaria','1987-04-19','admin@123');
+
+-- ======================================================
+
+insert into sch_pessoas.tbl_apartamento values
+(2,2,2,50,'A-norte',1104,'Ativo');
+
+-- ======================================================
+
+insert into sch_financeiro.tbl_boleto (fk_morador,fk_usuario, data_pagamento, pagamento, 
+									  eh_segunda_via, status, pct_multa, valor_multa, valor_total, cod_barra,
+									  competencia) values
+(2,2,now(),1200.45,false, 'Ativo', '0.15',0.00,1200.45,'000232552322555532553','12/2023');
+
+-- ======================================================
+
+insert into sch_contratos.tbl_gestor values
+('12896856392', 'Maria Bonita', 'maria.bonita@knnsystem.com.br');
+
+-- ======================================================
+
+insert into sch_contratos.tbl_sindico values
+('65369856570', 'Jorge Amado', 'jorge.amado@knnsystem.com.br');
+
+-- ======================================================
+
+insert into sch_contratos.tbl_responsavel values 
+('00023658970', 'Paulo Freire', 'paulo.freire@knnsystem.com.br');
+
+-- ======================================================
+
+insert into sch_contratos.tbl_rescisao (causador, valor, pct_multa, dt_pgto) values 
+('Contratado',15000.00,'0,3',now());
+
+-- ======================================================
+
+insert into sch_contratos.tbl_fornecedor (razao_social, cnpj, num_contr, natureza_servico, status, endereco, email_corporativo, fk_cpf_responsavel) values
+('Kantro', '12365652000145','123454','Limpeza e Conservação', 'Ativo','Rua Pacheco Leão','limpeza@kantro.com.br', '00023658970')
+
+-- ======================================================
+
+insert into sch_contratos.tbl_domicilio_bancario (agencia,fk_id_fornecedor,conta,banco,chave_pix,status) values
+('2232-1',1,'123225', '01 - Banco do Brasil','1256356590','Ativo');
+
+-- ======================================================
+
+insert into sch_contratos.tbl_domicilio_contrato (
+				fk_id_rescisao,	fk_id_fornecedor,vigencia_inicial, vigencia_final,num_contrato,
+				pct_multa,objeto,vlr_mensal_atual,vlr_mensal_inicial, fk_nome_gestor, fk_nome_sindico,
+				status,fk_cpf_gestor, fk_email_gestor, fk_cpf_sindico, fk_email_sindico
+				) values
+				
+(1,1,'01-01-2023','31-12-2023','1220-5','0.3','Limpeza',10000.00,10000.00, 'Maria Bonita', 'Jorge Amado','Ativo','12896856392',
+ 'maria.bonita@knnsystem.com.br','65369856570','jorge.amadfo@knnsystem.com.br'
+);
+
+-- ======================================================
+
+insert into sch_financeiro.tbl_pagamento (
+	fk_usuario,data_hora,fk_contrato, valor_pagamento,status
+) values
+(2,now(),2,1500.45,'Ativo');
+
+-- ======================================================
+
+
+insert into sch_financeiro.tbl_fatura (fk_pagamento,vencimento,valor,numero,status) values
+(5,'20-12-2023',5482.78,123253,'Ativo');
+

@@ -1,0 +1,1 @@
+delete from paciente where doenca like '%covid19%'
