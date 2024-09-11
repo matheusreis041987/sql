@@ -1,0 +1,28 @@
+-- MOSTRAR SCHEMAS, TABELAS E BANCO DE DADOS
+
+
+
+-- mostra todos os schemas do banco de dados logado
+SELECT schema_name FROM information_schema.schemata;
+
+-- mostrar todos os bancos de dados no postgres
+\l -- usar só no prompt
+
+-- mostrar o banco de dados corrente
+SELECT current_database();
+
+-- conectar a um banco de dados
+\c Alura
+
+-- informações a respeito da conexão atual
+\conninfo
+
+-- tabelas existentes no banco conectado
+\dt
+
+-- comando para verificar quais são os usuários no sistema
+\du
+
+
+
+

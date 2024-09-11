@@ -1,0 +1,46 @@
+create sequence id_cliente;
+drop table cliente
+create table cliente (
+
+	id bigint not null default nextval('id_cliente') primary key,
+	razao_social varchar(255),
+	produto varchar (255),
+	quantidade int,
+	preco_unitario decimal(10,2),
+	valor_total  decimal(10,2),
+	data_venda timestamp default now()
+	
+
+);
+
+drop function multiplicacao_preco ()
+create or replace function multiplicacao_preco () returns trigger as $$ 
+
+begin
+
+	
+		
+	if tg_op = 'INSERT' then	
+	update cliente set valor_total = quantidade * preco_unitario;
+		return new;
+	
+	end if;
+
+
+end;
+$$
+language 'plpgsql';
+
+drop trigger trg_multiplicacao_preco
+create or replace trigger trg_multiplicacao_preco
+after insert on cliente
+for each row execute
+procedure multiplicacao_preco();
+
+
+insert into cliente (razao_social, produto, quantidade, preco_unitario ) values
+('Brahma', 'cevada', 500, 8.50);
+
+select * from cliente
+
+update cliente set valor_total = quantidade * preco_unitario

@@ -38,7 +38,23 @@ INSERT INTO TADEGA2(num,vinho,produtor,ano,garrafas,engarraf) VALUES
 insert into interesse(rg) select rg from f group by rg order by rg;
 
 
+
+
 -- insert into usando o select para inserir grande quantidade de dados de outra tabela
 
 insert into "SISED".bonus (nome)
 (select enome from "SISED".emp where dn = 5 );
+
+
+
+-- POSTGRES - USANDO O SELECT PARA INSERIR DADOS
+
+create temporary table curso_programacao (
+id_curso integer primary key,
+nome_curso varchar(255) not null);
+
+
+insert into curso_programacao
+select curso.id, curso.nome from academico.curso 
+	join academico.categoria 
+		ON academico.categoria.id = academico.curso.id where curso.categoria_id = 1

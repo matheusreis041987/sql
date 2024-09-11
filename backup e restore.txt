@@ -1,0 +1,22 @@
+
+COMANDO PARA VER AS OPÇÕES DENTRO DO COMANDO pg_dump
+pg_dump --help 
+
+COMANDO PARA FAZER BACKUP DO BANCO DE DADOS ALURA
+pg_dump -f backup1.sql -h localhost -U postgres -d Alura
+
+
+
+COMANDO PARA VER AS OPÇÕES DENTRO DO COMANDO pg_restore
+pg_restore --help
+
+
+RECUPERAR ARQUIVOS SEM SER .SQL
+pg_restore
+
+RECUPERAR BACKUP DE ARQUIVOS .SQL
+psql Alura < caminho do arquivo
+
+
+
+

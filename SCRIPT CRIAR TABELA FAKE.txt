@@ -1,0 +1,77 @@
+create table instrutor2 (
+	id serial primary key,
+	nome varchar(255) not null,
+	salario decimal(10,2)
+);
+select count(*) from instrutor2;
+
+do $$
+	declare
+	begin
+		for i in 1..1000000 loop
+				insert into instrutor2 (nome, salario) values ('instrutor(a)' || i, random() * 1000 + 1);
+		end loop;
+	end;
+$$;
+
+select * from instrutor2;
+
+
+
+
+
+
+
+
+
+
+
+do $$
+	declare
+	begin
+		for i in 1..8000000 loop
+				insert into instrutor2 (nome, salario) values ('instrutor(a)' || i, random() * 1000 + 1);
+		end loop;
+	end;
+$$;
+
+
+
+
+
+==========================================================================
+
+
+MYSQL
+
+
+create table instrutor2 (
+	id serial primary key,
+	nome varchar(255) not null,
+	salario decimal(10,2)
+);
+
+
+
+DROP procedure if exists preencher_tabela_instrutor;
+delimiter $$
+CREATE PROCEDURE preencher_tabela_instrutor()
+BEGIN
+    DECLARE i INT default 1;
+
+    WHILE i <= 1000000 DO
+        insert into instrutor2 (nome, salario) values (concat('instrutor(a)', i), rand() * 1000 + 1);
+
+        SET i = i + 1;
+    END WHILE;
+END $$
+
+DELIMITER ;
+
+
+
+
+
+
+
+

@@ -1,0 +1,3 @@
+-- para obter um Snapshot de ujm banco de dados, usamos o comando create table
+
+create table vinho_produtor as select vinho, produtor, ano from tadega;

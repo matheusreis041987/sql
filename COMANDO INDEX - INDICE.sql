@@ -16,3 +16,22 @@ select * from tadega where vinho like '%noir%'
 -- DELETAR UM ÍNDICE
 
 drop index is exists indice_vinhos;
+
+
+
+-- INDEX COM POSTGRES
+
+
+
+-- convenção de começar o nome do índice com idx
+-- a cgave primária é um índice
+-- unique e pk também são índices
+
+create index idx_salario on instrutor2(salario);
+
+
+-- DE TEMPOS EM TEMPOS É IMPORTANTE REINDEXAR, PARA REORGANIZAR OS ÍNDICES (tolls > Maintenance)
+
+
+-- índices aumentam a complexidade
+-- criamos índices quando temos querys complexas e pesadas, por causa das implicações criadas pelo índice

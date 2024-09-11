@@ -1,0 +1,17 @@
+
+-- VER O ANDAMENTO DAS CONEXÕES COM O BD
+
+SELECT * FROM pg_stat_activity ORDER BY backend_start; 
+
+SELECT * FROM pg_stat_activity ORDER BY pid;
+
+SELECT * FROM pg_stat_activity WHERE pid = 7416;
+
+
+
+-- INTERROMPER UM PROCESSO EM EXECUÇÃO
+SELECT pg_terminate_backend(PID);
+
+
+
+SELECT pg_relation_filepath(oid), relpages FROM pg_class WHERE relname = 'customer'

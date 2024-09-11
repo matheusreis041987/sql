@@ -45,7 +45,7 @@ references "VetLab".employee(employeename) on delete set null on update set null
 
 
 -- Postgres
-
+https://www.postgresql.org/docs/12/sql-altertable.html
 
 -- inserir nova coluna
 alter table db_restaurant.comissao add column comissao_data_pagamento int;
@@ -57,5 +57,5 @@ ALTER TABLE	comissao	DROP COLUMN	comissao_data_pagamento;
 ALTER TABLE	comissao	ADD COLUMN	comissao_data_pagamento	TIMESTAMP
 ;
 
-
-
+-- Alterar o nome de uma coluna
+alter table c rename column coluna to nome

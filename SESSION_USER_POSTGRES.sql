@@ -2,3 +2,7 @@
 
 select session_user;
 
+
+
+
+SELECT * FROM public.role_password_encryption_type();

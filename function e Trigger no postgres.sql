@@ -1,4 +1,4 @@
-nomselect * from loja.produto
+select * from loja.produto
 
 
 -- _old _new coluna alteracao para armazenar a operacao realizada
@@ -8,10 +8,12 @@ create table if not exists loja.log_produto(
 	log_produto_id integer  primary key,
 	log_produto_data_alteracao timestamp,
 	log_produto_alteracao varchar(10),
+
 	produto_identificador_old integer,
 	produto_nome_old varchar(200),
 	produto_quantidade_old integer,
 	produto_valor_old numeric,
+
 	produto_identificador_new integer,
 	produto_nome_new varchar(200),
 	produto_quantidade_new integer,

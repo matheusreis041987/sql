@@ -1,0 +1,25 @@
+
+-- RETIRAR OS ZEROS A ESQUERDA DE UM NÚMERO
+
+REPLACE(LTRIM(REPLACE(c.cd_contrato_pai, '0', ' ')), ' ', '0') as contrato
+
+
+select nome_func from funcionario2
+select replace (nome_func, '0','') from funcionario2
+select cast(replace(ltrim(replace (nome_func, '0','')),'','0') as varchar)  from funcionario2
+
+
+
+
+SELECT TRIM(LEADING '0' FROM nome_func) AS resultado FROM funcionario2;
+
+
+
+LEADING: Esta opção instrui a função a remover as ocorrências iniciais do caractere de corte especificado.
+TRAILING: Esta opção instrui a função a remover ocorrências finais do caractere de corte especificado.
+BOTH: Esta opção instrui a função a remover as ocorrências iniciais e finais do caractere de corte especificado.
+
+
+
+
+select cast(nome_func as integer) as resultado from funcionario2 where id = 6;

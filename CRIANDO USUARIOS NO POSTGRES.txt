@@ -1,0 +1,44 @@
+--https://www.youtube.com/watch?v=XZlUjQ8Q2YE
+--https://github.com/ciencia-de-dados-pratica/GEAM-basico/blob/master/2021/Alysson%20-%20Gerenciando%20Usu%C3%A1rios%20e%20Permiss%C3%B5es%20no%20PostgreSQL-parte1/Gerenciamento%20de%20Usu%C3%A1rios%20e%20Permiss%C3%B5es%20no%20PostgreSQL%20-%20parte%201.md
+
+https://www.devmedia.com.br/gerenciando-usuarios-e-permissoes-no-postgresql/14301
+
+-- fazer no CMD 
+
+create role aurea with PASSWORD 'Judy@01234' CREATEDB CREATEROLE;
+
+
+create role serpro with PASSWORD 'Judy@01234' CREATEDB CREATEROLE LOGIN CONNECTION LIMIT -1 ;
+
+https://rpg.consudata.com.br/posts/2021-03-30-papeis-e-usurios-no-postgresql/
+
+
+GRANT SELECT TO serpro WITH GRANT OPTION
+
+
+-- criar usuário que possa se conectar direito com o banco de dados
+create user desenvolvedor with PASSWORD 'Judy@01234';
+
+
+
+
+-- VERIFICAR OS USUÁRIOS
+SELECT usename FROM pg_user;
+
+
+-- LISTAR TODOS OS USUÁRIOS LINHA DE COMANDO
+\du
+
+
+-- remover privilégios
+revoke all privileges on database "Alura" from "12896856730";
+revoke all privileges on database "Alura" from desenvolvedor;
+
+
+-- INSTRUÇÃO 'GRANT' SERVE PARA DAR PERMISSÃO DE USO AOS USUÁRIOS
+https://www.postgresql.org/docs/current/sql-grant.html
+
+-- dando acesso de select ao usuário
+grant select on public.instrutor2 to "12896856730";
+
+grant insert, update on public.aluno to "12896856730";

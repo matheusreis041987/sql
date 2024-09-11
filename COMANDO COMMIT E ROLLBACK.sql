@@ -1,3 +1,4 @@
+begin; -- iniciar a transação
 select * from medico4;
 
 delete from medico4 where crm = 869521;

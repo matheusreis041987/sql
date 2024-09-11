@@ -40,3 +40,33 @@ update c set data = "2003-04-011" where rg = 60;
 
 
 alter table Palhaco_info add column tipo varchar(30) check (tipo in ('A','B','C'));
+
+
+
+-- Alura
+
+-- alterando mais de um campo numa só linha
+
+update aluno set nome = 'Nico',  observacao = 'Teste' where id = 1
+
+
+
+
+USANDO UPDATE PARA ATULIZAR UMA TABELA A PARTIR DE OUTRA TABELA
+
+
+CREATE TABLE cursos_programacao (
+	id_curso integer primary key,
+	nome_curso character varying (255)
+
+);
+
+insert into academico.cursos_programacao (id_curso) values
+(1),
+(2),
+(3),
+(4)
+;
+
+update academico.cursos_programacao set nome_curso = nome
+from academico.curso where academico.cursos_programacao.id_curso = academico.curso.id

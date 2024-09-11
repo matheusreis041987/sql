@@ -1,0 +1,11 @@
+select 
+razao_social, produto, valor_total,
+case when valor_total <=2000 then 'Compra menor que 2 mil'
+	 when valor_total <=7000 then 'Compra menor que 7 mil e maior que 2 mil'
+	 when valor_total > 7000 then 'Compra maior que 7 mil'
+	 end as Tipo_compra,
+case when valor_total <=2000 then 'pequena'
+	 when valor_total <=7000 then 'média'
+	 when valor_total > 7000 then 'Grande'
+	 end as Padrao_compra
+	 from cliente

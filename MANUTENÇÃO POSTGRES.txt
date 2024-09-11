@@ -1,0 +1,69 @@
+-- QUANDO FAZEMOS UPDATE E DELETE O POSTGRES SÓ INATIVAMOS A LINHA (DELETE) 
+--OU DUPLICAMOS A LINHA E PROCEDEMOS COM SUA ALTERAÇÃO, DEIXANDO ATIVA A LINHA ALTERADA
+
+-- https://www.postgresql.org/docs/current/mvcc.html
+
+
+
+
+--=======================================================
+SELECT * FROM INSTRUTOR
+
+
+create table instrutor2 (
+	id serial primary key,
+	nome varchar(255) not null,
+	salario decimal(10,2)
+);
+select count(*) from instrutor2;
+
+do $$
+	declare
+	begin
+		for i in 1..1000000 loop
+				insert into instrutor2 (nome, salario) values ('instrutor(a)' || i, random() * 1000 + 1);
+		end loop;
+	end;
+$$;
+
+select * from instrutor2;
+
+update instrutor2 set salario = salario * 2 where id  % 2 = 1;
+
+
+
+select relname, n_dead_tup from pg_stat_user_tables; -- mostra a quantidade de tuplas mortas em todas as tabelas
+
+select pg_size_pretty(pg_relation_size('instrutor2')); -- tamanho que uma tabela está ocupando
+
+vacuum verbose; -- vai retirando as tuplas mortas - o postgres já faz isso de tempo em tempo 
+
+-- https://halleyoliv.gitlab.io/pgdocptbr/sql-vacuum.html#:~:text=O%20comando%20VACUUM%20recupera%20o,o%20comando%20VACUUM%20seja%20executado.
+
+-- https://halleyoliv.gitlab.io/pgdocptbr/routine-vacuuming.html 
+-- https://www.postgresql.org/docs/current/sql-vacuum.html
+-- https://www.devmedia.com.br/postgresql-vacuum-limpando-o-banco-de-dados/29716
+
+vacuum analyse;  -- atualizado as estatísticas do postgres
+
+===================================================================================
+
+vacuum full; -- vai travar o BD e impedir qualquer outra operação, reorganizando os espaços em branco
+
+
+existe uma ferramente do vaccum rodando no postgres
+
+--=======================================================================================================
+
+
+
+analyze; -- atualizar as estatísticas do postgres, otimizando as querys
+
+
+
+reindex table instrutor2; -- processo relativamente demorado que atualiza a tabela de índices
+
+
+
+
+

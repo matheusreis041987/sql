@@ -83,3 +83,12 @@ LANGUAGE	PLPGSQL;
 
 select rt_valor_comissao('Ab1')
 
+
+
+
+
+
+
+
+
+

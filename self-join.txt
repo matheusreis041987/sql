@@ -1,0 +1,20 @@
+self-join - quando fazemos a junção de uma tabela com ela mesma
+
+
+
+select 
+a.sales_month,
+a.kind_of_business,
+a.sales,
+sum (b.sales) as total_sales
+from retail_sales as a
+join retail_sales as b on 
+(a.sales_month = b.sales_month and
+b.kind_of_business in ('Men''s clothing stores','Women''s clothing stores'))
+where
+a.kind_of_business in ('Men''s clothing stores','Women''s clothing stores')
+group by 1,2,3
+
+
+
+===============================================================

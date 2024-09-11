@@ -1,0 +1,39 @@
+Adicione o binário do PostgreSQL ao PATH: Durante a instalação, você pode escolher adicionar o diretório bin do PostgreSQL ao PATH do sistema. Se não fez isso durante a instalação, pode adicionar manualmente:
+
+Vá para Painel de Controle > Sistema > Configurações avançadas do sistema > Variáveis de Ambiente.
+Encontre a variável Path em Variáveis do sistema e clique em Editar.
+Adicione o caminho para o diretório bin do PostgreSQL. Normalmente, é algo como C:\Program Files\PostgreSQL\<versão>\bin.
+
+
+
+psql -U postgres -h localhost -p 5432 -d Alura
+
+
+
+
+psql -U aurea -h localhost -p 5432 -d Alura
+
+psql -U gerente -h localhost -p 5432 -d Alura
+
+
+
+psql -U <usuario> -h <host> -p <porta> -d <banco_de_dados>
+
+
+-U <usuario>: substitua <usuario> pelo nome do usuário do PostgreSQL.
+-h <host>: substitua <host> pelo endereço do servidor PostgreSQL (use localhost se for local).
+-p <porta>: substitua <porta> pelo número da porta do servidor PostgreSQL (padrão é 5432).
+-d <banco_de_dados>: substitua <banco_de_dados> pelo nome do banco de dados que deseja acessar.
+
+exemplo de pesquisa
+select * from public.curso;
+
+
+
+
+verificar o status do servidor usando o pg_ctl na pasta bin
+C:\Program Files\PostgreSQL\15\bin>pg_ctl -D "C:\Program Files\PostgreSQL\15\data" status
+
+
+
+

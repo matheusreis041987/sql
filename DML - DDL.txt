@@ -1,0 +1,13 @@
+
+
+        DDL ==> create | alter | drop
+SQL -
+	DML ==> insert | update | delete | select
+
+
+DDL (data definition language) São comandos usados para definir a estrutura e organização dos dados em um banco de dados.
+ Esses comandos permitem criar, modificar ou excluir tabelas, esquemas e bancos de dados.;
+
+
+DML (data manipulation language) são usados para manipular os dados armazenados em um banco de dados. Eles permitem que os usuários insiram, atualizem, 
+removam e consultem informações em uma tabela ou banco de dados.

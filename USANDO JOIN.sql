@@ -127,5 +127,36 @@ on f.funcionario_id = v.funcionario_id where not f.funcionario_nome like '%V%' o
 
 
 
+=======================================================================
+ALURA
+=======================================================================
 
+-- select com mais de 2 tableas
+
+select aluno.nome as aluno_nome, curso.nome as curso from aluno 
+join aluno_curso on aluno_curso.aluno_id = aluno.id join curso on curso.id = aluno_curso.curso_id
+
+-- select com left join - tem dados na tabela da esquerda mesmo que não tenha dados na direita
+
+select aluno.nome as aluno_nome, curso.nome as curso from aluno 
+left join aluno_curso on aluno_curso.aluno_id = aluno.id left join curso on curso.id = aluno_curso.curso_id
+
+--select com right join - tem dados na tabela da direita mesmo que não tenha dados na esquerda
+
+select aluno.nome as aluno_nome, curso.nome as curso from aluno 
+right join aluno_curso on aluno_curso.aluno_id = aluno.id right join curso on curso.id = aluno_curso.curso_id
+
+
+-- select com full join, trazendo todos os dados, mesmo com valor nulo
+
+select aluno.nome as aluno_nome, curso.nome as curso from aluno 
+full join aluno_curso on aluno_curso.aluno_id = aluno.id full join curso on curso.id = aluno_curso.curso_id
+
+
+-- select com cross join, que faz todas as possibilidades possíveis, fazendo o cruzamento de todos os dados
+
+select aluno.nome as aluno_nome, curso.nome as curso from aluno 
+cross join curso
+
+ 
 
